@@ -1,0 +1,80 @@
+# Agente de Consulta de Notas Fiscais (v2.0)
+
+Este projeto contém um agente em Python aprimorado para consultar informações de arquivos CSV de notas fiscais (cabeçalho e itens), agora com suporte a diversas consultas avançadas.
+
+## Funcionalidades (v2.0)
+
+O agente agora permite realizar uma variedade maior de consultas sobre os dados das notas fiscais, incluindo:
+
+*   Calcular o valor total de todas as notas fiscais.
+*   Identificar a nota fiscal com o maior valor individual.
+*   Calcular o valor médio das notas fiscais.
+*   Listar os N principais fornecedores por valor total faturado (padrão N=5).
+*   Listar os N principais destinatários por valor total comprado (padrão N=5).
+*   Identificar o item que gerou a maior receita total.
+*   Listar os N itens mais vendidos em termos de quantidade total (padrão N=10).
+*   Calcular a quantidade média de itens por nota fiscal.
+*   Listar os N principais estados de origem (UF Emitente) por número de notas ou por valor total (padrão N=5).
+*   Listar os N principais estados de destino (UF Destinatário) por número de notas ou por valor total (padrão N=5).
+*   Mostrar a distribuição das notas por Natureza da Operação.
+*   *Mantém as consultas originais:* Identificar o fornecedor com maior valor e o item com maior quantidade.
+
+O agente foi projetado para ser extensível, permitindo a adição de novas consultas conforme necessário.
+
+## Arquivos Incluídos
+
+*   `202401_NFs_Cabecalho.csv`: Arquivo CSV com os dados do cabeçalho das notas fiscais.
+*   `202401_NFs_Itens.csv`: Arquivo CSV com os dados dos itens das notas fiscais.
+*   `load_data.py`: Script Python contendo a função para carregar e pré-processar os dados.
+*   `query_agent_v2.py`: Script Python principal que implementa o agente de consulta interativo (versão aprimorada).
+*   `test_queries.py`: Script Python para executar testes automatizados das funções de consulta.
+*   `README_v2.md`: Este arquivo com as instruções atualizadas.
+*   `todo.md`: Arquivo de acompanhamento do desenvolvimento (para referência).
+
+## Pré-requisitos
+
+*   Python 3.x
+*   Biblioteca Pandas (`pip install pandas`)
+
+## Como Usar
+
+1.  **Certifique-se** de que os arquivos `202401_NFs_Cabecalho.csv` e `202401_NFs_Itens.csv` estejam no mesmo diretório que os scripts Python, ou ajuste os caminhos dentro dos scripts (`load_data.py`, `query_agent_v2.py`, `test_queries.py`) para apontar para a localização correta dos arquivos.
+    *   Atualmente, os scripts esperam encontrar os arquivos em `/home/ubuntu/upload/`. Se você executar em um local diferente, **precisará editar** as linhas `cabecalho_file = "."` e `itens_file = "."` nos scripts.
+2.  **Execute** o agente de consulta aprimorado a partir do seu terminal:
+    ```bash
+    python query_agent_v2.py
+    ```
+3.  O agente iniciará e exibirá uma mensagem de boas-vindas.
+4.  **Digite** `ajuda` para ver uma lista completa de exemplos de perguntas que o agente pode responder.
+5.  **Digite** sua pergunta no prompt `Faça sua pergunta: `.
+    *   **Exemplos:**
+        *   `Qual o valor total das notas?`
+        *   `Qual a nota de maior valor?`
+        *   `Qual o valor médio das notas?`
+        *   `Top 5 fornecedores por valor` (ou `Top 10 fornecedores por valor`)
+        *   `Top 3 destinatários por valor`
+        *   `Qual item gerou maior receita?`
+        *   `Top 10 itens por quantidade` (ou `Top 5 itens por quantidade`)
+        *   `Qual a média de itens por nota?`
+        *   `Top 5 estados de origem por contagem`
+        *   `Top 3 estados de origem por valor`
+        *   `Top 5 estados de destino por contagem`
+        *   `Top 10 estados de destino por valor`
+        *   `Qual a distribuição por natureza da operação?`
+6.  O agente processará a pergunta e exibirá o resultado.
+7.  Para **encerrar** o agente, digite `sair`.
+
+## Testando as Consultas (Opcional)
+
+Você pode executar o script `test_queries.py` para verificar se todas as funções de consulta estão retornando resultados (útil após modificações):
+```bash
+python test_queries.py
+```
+
+## Limitações e Próximos Passos
+
+*   A interpretação das perguntas ainda é baseada em palavras-chave e pode não entender variações complexas da linguagem natural.
+*   Seria interessante adicionar mais funcionalidades de consulta (filtros por data específica, por fornecedor/destinatário específico, análise de NCM/SH, etc.).
+*   Implementar um processamento de linguagem natural mais robusto.
+*   Criar visualizações gráficas dos dados.
+
