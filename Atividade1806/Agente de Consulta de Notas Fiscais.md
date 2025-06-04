@@ -2,7 +2,7 @@
 
 Este projeto contém um agente em Python aprimorado para consultar informações de arquivos CSV de notas fiscais (cabeçalho e itens), agora com suporte a diversas consultas avançadas.
 
-## Funcionalidades (v2.0)
+## Funcionalidades
 
 O agente agora permite realizar uma variedade maior de consultas sobre os dados das notas fiscais, incluindo:
 
