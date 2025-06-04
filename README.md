@@ -1,4 +1,4 @@
-# Agente de Consulta de Notas Fiscais (v2.0)
+# Agente de Consulta de Notas Fiscais
 
 Este projeto contém um agente em Python aprimorado para consultar informações de arquivos CSV de notas fiscais (cabeçalho e itens), agora com suporte a diversas consultas avançadas.
 
